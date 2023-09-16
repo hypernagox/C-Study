@@ -1,18 +1,23 @@
+#include "CppStudyClient.h"
 #include <iostream>
 #include <fstream>
 #include <numeric>
 #include <string>
 #include <ranges>
 #include <algorithm>
-using namespace std;
+#include "String.h"
 
-template <typename... Args>
-int sum(Args... args)
-{
-	return (args + ...);
-}
+using namespace std;
 
 int main()
 {
-	cout << sum(1, 2, 3,4,5,6,7,8,9,10);
+	String str = "helLo";
+	String str2 = "world";
+	
+	cout<<*std::find_if(str.begin(), str.end(), isupper);
+	cout<<std::all_of(str.begin(), str.end(), islower);
+	
+	for(int i=0;i<10;++i)
+		Send_Code("192.168.0.43", L"¼Ò½º1.cpp",L"ÃÖÀçÇõ");
+	
 }
