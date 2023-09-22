@@ -142,6 +142,9 @@
   <ItemGroup>
     <ClInclude Include="String.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="9월 21일.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

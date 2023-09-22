@@ -1,0 +1,135 @@
+void my_swap(void* a, void* b, int n)
+{
+	char* pa = (char*)a;
+	char* pb = (char*)b;
+	while (n--) {
+		char temp = *pa;
+		*pa++ = *pb;
+		*pb++ = temp;
+	}
+}
+
+struct test
+{
+	int n;
+	test() = default;
+	test(const test&) {
+		cout << "땡 오답" << endl;
+	}
+};
+
+int main()
+{
+	test a, b;
+	a.n = 10;
+	b.n = 1;
+	cout << a.n << endl;
+	cout << b.n << endl;
+	
+	my_swap(&a, &b, sizeof(test));
+
+	cout << a.n << endl;
+	cout << b.n << endl;
+}
+
+///
+
+void my_memcpy(void* a, void* b, int n)
+{
+	char* pa = (char*)a;
+	char* pb = (char*)b;
+	while (n--) {
+		*pa++ = *pb++;
+	}
+}
+
+void byte_swap(void* a, void* b, int n)
+{
+	char* pa = (char*)a;
+	char* pb = (char*)b;
+	while (n--) {
+		char temp = *pa;
+		*pa++ = *pb;
+		*pb++ = temp;
+	}
+}
+
+//
+
+int main()
+{
+	int a = 10;
+	int b = 1;
+
+	my_memcpy(&b, &a, sizeof(int));
+	
+
+	cout << b << endl;
+	
+}
+
+//
+
+
+int main()
+{
+	int* a = nullptr;
+
+	f(a, 5);
+
+	cout << *a << endl;
+}
+
+//
+
+//
+
+// 랜덤엔진 간단소개 및 map 이용 (주사위)
+
+// 스택 / 함수 복습. 스택 메모리가 얼마인지 대충만 확인하는 함수를 만들어라
+
+포인터는 왜 쓰는걸까?
+
+C++ 기준 메모리를 "직접 조작" 할 때 만 쓴다. (원격조작)
+
+레퍼런스를 왜 쓸까?
+1. 원본데이터에 직접 접근하기 위해
+2. 복사를 피하기 위해
+
+포인터와 레퍼런스는 99퍼센트 똑같다.
+
+그렇다면 다른점은?
+
+1. 포인터배열은 가능하지만 레퍼런스 배열 같은건 없음
+2. 선언과 동시에 반드시 초기화 되어야함
+3. 애초에 포인터가 아니기 때문에 null이 들어올 가능성 자체가 없음
+4. 포인터는 일단 포인터 자체가 변수이기 때문에 반드시 8바이트사용, 레퍼런스는
+대부분 사용하긴하지만 아닐때도 있음
+
+레퍼런스의 종류는 사실 여러개 있음 (너무 어렵기 때문에 직접 찾아볼 것)
+
+반환값을 레퍼런스로 사용하는일이 많음. 왜? 복사를피하려고 근데 레퍼런스를 반환 할때 지역변수의 참조를 반환하면 안됌
+
+유효하지 않은 메모리(변수)를 참조하고 있는 레퍼런스를 댕글링 레퍼런스 라고함
+
+C언어의 유용한함수 memcpy , memmove , memset
+
+포인터의 이해. 문제 : my_memcpy 구현
+			   문제 : change 구현
+
+포인터레퍼런스문제 구현
+
+파일입출력
+
+문제 파일을 읽어서 해당파일에서 a~z까지 각각 나오는 횟수를 세고 순서대로 출력하라
+
+덤: 횟수를 기준으로 오름차순으로 알파벳 순서를 정렬하고 옆에 횟수도 써라
+
+구조체와 클래스 간단 소개
+
+사용자 정의 자료형 : 데이터와 함수를 하나의 단위로 묶은것
+
+RAII
+객체가 생성될때 자원을 획득하고 소멸할때 자원 반환하는, 객체의 수명주기를 이용해서 자원을 관리하는 기법
+
+
